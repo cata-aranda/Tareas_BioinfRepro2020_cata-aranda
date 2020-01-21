@@ -1,0 +1,12 @@
+## Completar Tarea 1.3 
+# Catalina Aranda, 2020
+
+# Crear directorio para guardar datos 
+mkdir Liquenes 
+
+# Descargar secuencias 
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=fasta&id=1517399299,1517399261,1517399177,1517399133,1517399019" > Liquenes/peltigera.fasta
+
+# Contar las repeeticiones de TGCA
+
+grep -c "TGCA" peltigera.fasta
