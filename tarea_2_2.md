@@ -2,7 +2,7 @@
 
 Here is how single-end data received from an Illumina sequencer might look:
 
-```perl
+```
 % ls ./raw
 lane3_NoIndex_L003_R1_001.fastq.gz  lane3_NoIndex_L003_R1_006.fastq.gz  lane3_NoIndex_L003_R1_011.fastq.gz
 lane3_NoIndex_L003_R1_002.fastq.gz  lane3_NoIndex_L003_R1_007.fastq.gz  lane3_NoIndex_L003_R1_012.fastq.gz
@@ -13,7 +13,7 @@ lane3_NoIndex_L003_R1_005.fastq.gz  lane3_NoIndex_L003_R1_010.fastq.gz
 
 Then you can run `process_radtags` in the following way:
 
-```perl
+```
 process_radtags -p ./raw/ -o ./samples/ -b ./barcodes/barcodes_lane3 \
                   -e sbfI -r -c -q
 ```
@@ -22,7 +22,7 @@ I specify the directory containing the input files, `./raw`, the directory I wan
 
 Here is a more complex example, using paired-end double-digested data (two restriction enzymes) with combinatorial barcodes, and gzipped input files. Here is what the raw Illumina files may look like:
 
-```perl
+```
 % ls ./raw
 GfddRAD1_005_ATCACG_L007_R1_001.fastq.gz  GfddRAD1_005_ATCACG_L007_R2_001.fastq.gz
 GfddRAD1_005_ATCACG_L007_R1_002.fastq.gz  GfddRAD1_005_ATCACG_L007_R2_002.fastq.gz
@@ -37,7 +37,7 @@ GfddRAD1_005_ATCACG_L007_R1_009.fastq.gz  GfddRAD1_005_ATCACG_L007_R2_009.fastq.
 
 Now we specify both restriction enzymes using the `--renz_1` and `--renz_2` flags along with the type combinatorial barcoding used. Here is the command:
 
-```perl
+```
 % process_radtags -P -p ./raw  -b ./barcodes/barcodes -o ./samples/ \
                   -c -q -r --inline_index --renz_1 nlaIII --renz_2 mluCI
 ```
@@ -47,7 +47,7 @@ The output of the process_radtags differs depending if you are processing single
 
 If you are processing paired-end reads, then you will get four files per barcode, two for the single-end read and two for the paired-end read. For example, given barcode ACTCG, you would see the following four files:
 
-```perl
+```
 sample_ACTCG.1.fq
 sample_ACTCG.rem.1.fq
 sample_ACTCG.2.fq
