@@ -1,0 +1,26 @@
+## Tarea 3.4 datos de reads 
+## Catalina Aranda
+
+### Cargar datos 
+```{r}
+data <- read.delim("../data/reads.txt")
+head(data)
+```
+
+```{r, include=FALSE}
+### Colores para graficar
+palette(c("#bf5746","#9559b7","#668f43" ))
+```
+
+### Construir barplot de número de lecturas por muestra 
+```{r}
+barplot(data$nreads, 
+        names.arg = data$sample, 
+        xlab = "Muestras", 
+        ylab = "Número de lecturas",
+        col= data$Library,
+        main = "Número de lecturas por librería")
+legend(x="topleft",legend=levels(data$Library),fill=palette())
+```
+
+
